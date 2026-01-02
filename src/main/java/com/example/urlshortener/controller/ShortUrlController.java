@@ -25,7 +25,7 @@ public class ShortUrlController {
         ShortUrlEntity entity =
                 shortUrlService.createShortUrl(request.getLongUrl(), null);
 
-        String shortUrl = "http://localhost:8080/" + entity.getShortCode();
+        String shortUrl = "https://url-shortener-production-8fce.up.railway.app/" + entity.getShortCode();
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new CreateShortUrlResponse(shortUrl));
