@@ -1,5 +1,6 @@
 package com.example.urlshortener.controller;
 
+import com.example.urlshortener.config.ApiConfig;
 import com.example.urlshortener.dto.CreateShortUrlRequest;
 import com.example.urlshortener.dto.CreateShortUrlResponse;
 import com.example.urlshortener.entity.ShortUrlEntity;
@@ -25,7 +26,7 @@ public class ShortUrlController {
         ShortUrlEntity entity =
                 shortUrlService.createShortUrl(request.getLongUrl(), null);
 
-        String shortUrl = "https://url-shortener-production-8fce.up.railway.app/" + entity.getShortCode();
+        String shortUrl = ApiConfig.baseUrl + entity.getShortCode();
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new CreateShortUrlResponse(shortUrl));
