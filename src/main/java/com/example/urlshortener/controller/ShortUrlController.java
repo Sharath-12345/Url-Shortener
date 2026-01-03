@@ -32,7 +32,7 @@ public class ShortUrlController {
                 .body(new CreateShortUrlResponse(shortUrl));
     }
 
-    @GetMapping("/{shortCode}")
+    @GetMapping("/{shortCode:^(?!api|health|static|index\\.html).+}")
     public ResponseEntity<Void> redirect(@PathVariable String shortCode) {
 
         ShortUrlEntity entity = shortUrlService.getByShortCode(shortCode);
