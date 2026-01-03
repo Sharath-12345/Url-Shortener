@@ -13,7 +13,7 @@ public class HomeController {
     @Value("${server.port:8080}")
     private String serverPort;
 
-    @GetMapping("/")
+    @GetMapping("/api/info")
     public Map<String, Object> home() {
         Map<String, Object> response = new HashMap<>();
         response.put("status", "running");
